@@ -1,0 +1,1 @@
+# jackson-vs-multiple-subclasses
