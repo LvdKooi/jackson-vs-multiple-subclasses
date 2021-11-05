@@ -3,17 +3,17 @@ package nl.kooi.persisting.subclasses.api.dto;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
-import lombok.ToString;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = CarPostingDto.class, name = "CarPosting"),
-        @JsonSubTypes.Type(value = MotorCyclePostingDto.class, name = "MotorCyclePosting"),
-        @JsonSubTypes.Type(value = PostingDto.class, name = "Posting"),
+        @JsonSubTypes.Type(value = CarDto.class, name = "CarPosting"),
+        @JsonSubTypes.Type(value = MotorCycleDto.class, name = "MotorCyclePosting"),
+        @JsonSubTypes.Type(value = VehicleDto.class, name = "Posting"),
 })
 @Data
-@ToString
-public class PostingDto {
+public class VehicleDto {
+    private Long id;
+    private String model;
     private String title;
     private String color;
     private String brand;

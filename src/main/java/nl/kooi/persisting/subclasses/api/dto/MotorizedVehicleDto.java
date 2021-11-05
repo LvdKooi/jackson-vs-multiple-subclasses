@@ -2,10 +2,11 @@ package nl.kooi.persisting.subclasses.api.dto;
 
 import lombok.Data;
 import lombok.ToString;
+import lombok.Value;
 
 @Data
-@ToString(callSuper = true)
-public class MotorizedVehiclePostingDto extends VehiclePostingDto{
+public class MotorizedVehicleDto extends VehicleDto {
+    private String licensePlate;
     private Long horsePower;
     private String fuelType;
 }

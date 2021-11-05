@@ -1,27 +1,26 @@
-create table spel (
-  id int primary key AUTO_INCREMENT,
-  startmoment DATETIME not null
+create table car (
+   number_of_doors int,
+    body_type varchar(255)
 );
 
-create table speler (
-  id int primary key AUTO_INCREMENT,
-  naam varchar(55) not null
+create table motor_cycle (
+    number_of_wheels int,
+    helmet_required bit
 );
 
-create table score (
-  id int primary key AUTO_INCREMENT,
-  score int not null,
-  speler_id int,
-  ronde_id int
+create table motorized_vehicle (
+ license_plate varchar(255),
+ horse_power varchar(255),
+   fuel_type varchar(255)
 );
 
-create table ronde (
-  id int primary key AUTO_INCREMENT,
-  rondenummer int,
-  spel_id int
+create table vehicle (
+       id int primary key AUTO_INCREMENT,
+      model varchar(255),
+      title varchar(255),
+      color varchar(255),
+      brand varchar(255),
+      condition varchar(255),
 );
 
-create table spel_speler (
-  spel_id int,
-  speler_id int
-);
+
