@@ -9,7 +9,8 @@ import nl.kooi.persisting.subclasses.service.VehicleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/vehicles")
+@RestController
+@RequestMapping("/vehicle")
 @RequiredArgsConstructor
 @Slf4j
 public class VehicleController {

@@ -1,8 +1,6 @@
 package nl.kooi.persisting.subclasses.api.dto;
 
 import lombok.Data;
-import lombok.ToString;
-import lombok.Value;
 
 @Data
 public class MotorizedVehicleDto extends VehicleDto {

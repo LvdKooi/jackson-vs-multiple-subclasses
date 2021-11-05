@@ -1,7 +1,7 @@
 package nl.kooi.persisting.subclasses.service;
 
 import lombok.RequiredArgsConstructor;
-import nl.kooi.persisting.subclasses.entity.VehicleEntity;
+import nl.kooi.persisting.subclasses.entity.Vehicle;
 import nl.kooi.persisting.subclasses.infrastructure.VehicleJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +12,11 @@ import java.util.Optional;
 public class VehicleService {
     private final VehicleJpaRepository repo;
 
-    public VehicleEntity saveVehicle(VehicleEntity vehicle) {
+    public Vehicle saveVehicle(Vehicle vehicle) {
         return repo.save(vehicle);
     }
 
-    public Optional<VehicleEntity> getVehicleById(Long id) {
+    public Optional<Vehicle> getVehicleById(Long id) {
         return repo.findById(id);
     }
 }

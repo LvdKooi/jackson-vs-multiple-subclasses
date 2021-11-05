@@ -6,9 +6,9 @@ import lombok.Data;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = CarDto.class, name = "CarPosting"),
-        @JsonSubTypes.Type(value = MotorCycleDto.class, name = "MotorCyclePosting"),
-        @JsonSubTypes.Type(value = VehicleDto.class, name = "Posting"),
+        @JsonSubTypes.Type(value = CarDto.class, name = "Car"),
+        @JsonSubTypes.Type(value = MotorCycleDto.class, name = "MotorCycle"),
+        @JsonSubTypes.Type(value = VehicleDto.class, name = "Vehicle"),
 })
 @Data
 public class VehicleDto {

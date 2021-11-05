@@ -1,9 +1,9 @@
 package nl.kooi.persisting.subclasses.api.dto;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+@Data
 public class CarDto extends MotorizedVehicleDto {
-    private Long numberOfDoors;
+    private int numberOfDoors;
     private String bodyType;
 }
