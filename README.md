@@ -2,7 +2,7 @@
 
 A simple project that shows the power of Polymorphic endpoints with Jackson and how Hibernate is able to persist subtypes.
 
-Example request to:
+Example request:
 
     POST "http://localhost:8080/vehicle"
 
