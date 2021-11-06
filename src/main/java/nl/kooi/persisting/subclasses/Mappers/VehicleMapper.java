@@ -8,59 +8,56 @@ import nl.kooi.persisting.subclasses.entity.Car;
 import nl.kooi.persisting.subclasses.entity.MotorCycle;
 import nl.kooi.persisting.subclasses.entity.MotorizedVehicle;
 import nl.kooi.persisting.subclasses.entity.Vehicle;
-import org.mapstruct.BeforeMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
-import org.mapstruct.TargetType;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface VehicleMapper {
 
-    @BeforeMapping
-    default void mapVehicleBefore(VehicleDto dto, @TargetType Vehicle vehicle) {
 
-        if (dto instanceof MotorizedVehicleDto) {
-            ((MotorizedVehicle) vehicle).setFuelType(((MotorizedVehicleDto) dto).getFuelType());
-            ((MotorizedVehicle) vehicle).setHorsePower(((MotorizedVehicleDto) dto).getHorsePower());
-            ((MotorizedVehicle) vehicle).setLicensePlate(((MotorizedVehicleDto) dto).getLicensePlate());
-
-        }
-
+    default Vehicle map(VehicleDto dto) {
         if (dto instanceof CarDto) {
-            ((Car) vehicle).setBodyType(((CarDto) dto).getBodyType());
-            ((Car) vehicle).setNumberOfDoors(((CarDto) dto).getNumberOfDoors());
-
+            return mapCar((CarDto) dto);
         }
 
         if (dto instanceof MotorCycleDto) {
-            ((MotorCycle) vehicle).setHelmetRequired(((MotorCycleDto) dto).isHelmetRequired());
-            ((MotorCycle) vehicle).setNumberOfWheels(((MotorCycleDto) dto).getNumberOfWheels());
+            return mapMotorCycle((MotorCycleDto) dto);
         }
+
+        if (dto instanceof MotorizedVehicleDto) {
+            return mapMotorizedVehicle((MotorizedVehicleDto) dto);
+        }
+
+        return null;
+
     }
 
-    @BeforeMapping
-    default void mapDtoBefore(Vehicle vehicle, @TargetType VehicleDto dto) {
-
-        if (vehicle instanceof MotorizedVehicle) {
-            ((MotorizedVehicleDto) dto).setFuelType(((MotorizedVehicle) vehicle).getFuelType());
-            ((MotorizedVehicleDto) dto).setHorsePower(((MotorizedVehicle) vehicle).getHorsePower());
-            ((MotorizedVehicleDto) dto).setLicensePlate(((MotorizedVehicle) vehicle).getLicensePlate());
-
-        }
-
+    default VehicleDto map(Vehicle vehicle) {
         if (vehicle instanceof Car) {
-            ((CarDto) dto).setBodyType(((Car) vehicle).getBodyType());
-            ((CarDto) dto).setNumberOfDoors(((Car) vehicle).getNumberOfDoors());
-
+            return mapCarDto((Car) vehicle);
         }
 
         if (vehicle instanceof MotorCycle) {
-            ((MotorCycleDto) dto).setHelmetRequired(((MotorCycle) vehicle).isHelmetRequired());
-            ((MotorCycleDto) dto).setNumberOfWheels(((MotorCycle) vehicle).getNumberOfWheels());
+            return mapMotorCycleDto((MotorCycle) vehicle);
         }
+
+        if (vehicle instanceof MotorizedVehicle) {
+            return mapMotorizedVehicleDto((MotorizedVehicle) vehicle);
+        }
+
+        return null;
     }
 
-    Vehicle map(VehicleDto dto);
+    MotorizedVehicle mapMotorizedVehicle(MotorizedVehicleDto dto);
 
-    VehicleDto map(Vehicle entity);
+    MotorCycle mapMotorCycle(MotorCycleDto dto);
+
+    Car mapCar(CarDto dto);
+
+    MotorizedVehicleDto mapMotorizedVehicleDto(MotorizedVehicle entity);
+
+    MotorCycleDto mapMotorCycleDto(MotorCycle entity);
+
+    CarDto mapCarDto(Car entity);
+
 }
