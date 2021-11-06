@@ -1,4 +1,4 @@
-package nl.kooi.persisting.subclasses.Mappers;
+package nl.kooi.persisting.subclasses.mappers;
 
 import nl.kooi.persisting.subclasses.api.dto.CarDto;
 import nl.kooi.persisting.subclasses.api.dto.MotorCycleDto;
