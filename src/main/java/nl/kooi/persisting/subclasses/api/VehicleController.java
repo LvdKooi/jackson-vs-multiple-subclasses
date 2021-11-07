@@ -20,6 +20,7 @@ public class VehicleController {
     @PostMapping
     @ResponseStatus(value = HttpStatus.OK)
     public VehicleDto postVehicle(@RequestBody VehicleDto posting) {
+        log.info("Receiving request for " + posting);
         return mapper.map(service.saveVehicle(mapper.map(posting)));
     }
 

@@ -1,6 +1,6 @@
 # jackson-vs-multiple-subclasses
 
-A simple project that shows the power of Polymorphic endpoints with Jackson and how Hibernate is able to persist subtypes.
+A simple demo application that shows the power of Polymorphic endpoints with Jackson and how Hibernate is able to persist subtypes.
 
 Example request:
 
@@ -11,9 +11,8 @@ Example request:
     "color": "Yellow",
     "condition": "Great",
     "model": "Golf",
-    "title": "Volkswagen Golf",
     "licensePlate": "07-88-SX",
     "numberOfDoors": 4,
     "bodyType": "hatchback",
-    "type": "Car"
+    "vehicleType": "CAR"
     }

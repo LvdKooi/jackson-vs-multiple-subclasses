@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import nl.kooi.persisting.subclasses.enums.VehicleType;
 
 import javax.persistence.*;
 
@@ -17,8 +18,9 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated(value = EnumType.STRING)
+    private VehicleType vehicleType;
     private String model;
-    private String title;
     private String color;
     private String brand;
     private String condition;
