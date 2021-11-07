@@ -1,4 +1,4 @@
-package nl.kooi.persisting.subclasses.enums;
+package nl.kooi.vehicle.enums;
 
 public enum VehicleType {
     VEHICLE, MOTORIZED_VEHICLE, MOTOR_CYCLE, CAR

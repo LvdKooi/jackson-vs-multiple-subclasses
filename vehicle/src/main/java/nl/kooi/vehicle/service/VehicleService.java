@@ -1,8 +1,8 @@
-package nl.kooi.persisting.subclasses.service;
+package nl.kooi.vehicle.service;
 
 import lombok.RequiredArgsConstructor;
-import nl.kooi.persisting.subclasses.entity.Vehicle;
-import nl.kooi.persisting.subclasses.infrastructure.VehicleJpaRepository;
+import nl.kooi.vehicle.entity.Vehicle;
+import nl.kooi.vehicle.infrastructure.VehicleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

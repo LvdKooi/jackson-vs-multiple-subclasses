@@ -1,6 +1,6 @@
-package nl.kooi.persisting.subclasses.infrastructure;
+package nl.kooi.vehicle.infrastructure;
 
-import nl.kooi.persisting.subclasses.entity.Vehicle;
+import nl.kooi.vehicle.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

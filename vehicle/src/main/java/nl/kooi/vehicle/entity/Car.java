@@ -1,4 +1,4 @@
-package nl.kooi.persisting.subclasses.entity;
+package nl.kooi.vehicle.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,13 +1,13 @@
-package nl.kooi.persisting.subclasses.mappers;
+package nl.kooi.vehicle.mappers;
 
-import nl.kooi.persisting.subclasses.api.dto.CarDto;
-import nl.kooi.persisting.subclasses.api.dto.MotorCycleDto;
-import nl.kooi.persisting.subclasses.api.dto.MotorizedVehicleDto;
-import nl.kooi.persisting.subclasses.api.dto.VehicleDto;
-import nl.kooi.persisting.subclasses.entity.Car;
-import nl.kooi.persisting.subclasses.entity.MotorCycle;
-import nl.kooi.persisting.subclasses.entity.MotorizedVehicle;
-import nl.kooi.persisting.subclasses.entity.Vehicle;
+import nl.kooi.vehicle.api.dto.CarDto;
+import nl.kooi.vehicle.api.dto.MotorCycleDto;
+import nl.kooi.vehicle.api.dto.MotorizedVehicleDto;
+import nl.kooi.vehicle.api.dto.VehicleDto;
+import nl.kooi.vehicle.entity.Car;
+import nl.kooi.vehicle.entity.MotorCycle;
+import nl.kooi.vehicle.entity.MotorizedVehicle;
+import nl.kooi.vehicle.entity.Vehicle;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

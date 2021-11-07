@@ -1,4 +1,4 @@
-package nl.kooi.persisting.subclasses.api.dto;
+package nl.kooi.vehicle.api.dto;
 
 import lombok.Data;
 

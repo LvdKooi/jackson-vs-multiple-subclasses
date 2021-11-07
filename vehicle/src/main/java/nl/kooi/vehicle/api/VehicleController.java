@@ -1,11 +1,11 @@
-package nl.kooi.persisting.subclasses.api;
+package nl.kooi.vehicle.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl.kooi.persisting.subclasses.api.dto.VehicleDto;
-import nl.kooi.persisting.subclasses.exception.NotFoundException;
-import nl.kooi.persisting.subclasses.mappers.VehicleMapper;
-import nl.kooi.persisting.subclasses.service.VehicleService;
+import nl.kooi.vehicle.api.dto.VehicleDto;
+import nl.kooi.vehicle.exception.NotFoundException;
+import nl.kooi.vehicle.mappers.VehicleMapper;
+import nl.kooi.vehicle.service.VehicleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

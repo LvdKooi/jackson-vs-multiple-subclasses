@@ -1,10 +1,10 @@
-package nl.kooi.persisting.subclasses.api.dto;
+package nl.kooi.vehicle.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
 import lombok.ToString;
-import nl.kooi.persisting.subclasses.enums.VehicleType;
+import nl.kooi.vehicle.enums.VehicleType;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,

@@ -1,10 +1,10 @@
-package nl.kooi.persisting.subclasses;
+package nl.kooi.vehicle;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PersistingSubclassesApplicationTests {
+class VehicleSubclassesApplicationTests {
 
 	@Test
 	void contextLoads() {

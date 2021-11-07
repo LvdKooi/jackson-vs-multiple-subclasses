@@ -1,10 +1,10 @@
-package nl.kooi.persisting.subclasses.entity;
+package nl.kooi.vehicle.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import nl.kooi.persisting.subclasses.enums.VehicleType;
+import nl.kooi.vehicle.enums.VehicleType;
 
 import javax.persistence.*;
 

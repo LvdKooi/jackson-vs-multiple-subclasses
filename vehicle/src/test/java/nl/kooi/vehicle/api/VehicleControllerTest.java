@@ -1,13 +1,13 @@
-package nl.kooi.persisting.subclasses.api;
+package nl.kooi.vehicle.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.kooi.persisting.subclasses.api.dto.CarDto;
-import nl.kooi.persisting.subclasses.api.dto.VehicleDto;
-import nl.kooi.persisting.subclasses.entity.Car;
-import nl.kooi.persisting.subclasses.entity.Vehicle;
-import nl.kooi.persisting.subclasses.enums.VehicleType;
-import nl.kooi.persisting.subclasses.mappers.VehicleMapperImpl;
-import nl.kooi.persisting.subclasses.service.VehicleService;
+import nl.kooi.vehicle.api.dto.CarDto;
+import nl.kooi.vehicle.api.dto.VehicleDto;
+import nl.kooi.vehicle.entity.Car;
+import nl.kooi.vehicle.entity.Vehicle;
+import nl.kooi.vehicle.enums.VehicleType;
+import nl.kooi.vehicle.mappers.VehicleMapperImpl;
+import nl.kooi.vehicle.service.VehicleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -40,7 +40,7 @@ class VehicleControllerTest {
         when(service.saveVehicle(any(Vehicle.class))).thenReturn(getCar());
 
         var mvcResult = mockMvc.perform(post("/vehicle")
-                .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(getCarDto())))
+                        .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(getCarDto())))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andReturn()

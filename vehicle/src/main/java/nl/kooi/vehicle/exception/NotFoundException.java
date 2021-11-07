@@ -1,4 +1,4 @@
-package nl.kooi.persisting.subclasses.exception;
+package nl.kooi.vehicle.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
