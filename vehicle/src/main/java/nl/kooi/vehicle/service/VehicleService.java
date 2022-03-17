@@ -5,6 +5,7 @@ import nl.kooi.vehicle.entity.Vehicle;
 import nl.kooi.vehicle.infrastructure.VehicleJpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,5 +19,9 @@ public class VehicleService {
 
     public Optional<Vehicle> getVehicleById(Long id) {
         return repo.findById(id);
+    }
+
+    public List<Vehicle> getVehicles() {
+        return repo.findAll();
     }
 }

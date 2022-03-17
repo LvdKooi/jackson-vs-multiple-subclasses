@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import nl.kooi.vehicle.enums.BodyStyle;
+import nl.kooi.vehicle.enums.BusType;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,8 +15,8 @@ import javax.persistence.Enumerated;
 @Entity
 @Getter
 @Setter
-public class Car extends MotorizedVehicle {
-    private int numberOfDoors;
-    @Enumerated(value = EnumType.STRING)
-    private BodyStyle bodyStyle;
+public class Bus extends MotorizedVehicle {
+    @Enumerated(EnumType.STRING)
+    private BusType busType;
+    private int litersLuggageCapacity;
 }

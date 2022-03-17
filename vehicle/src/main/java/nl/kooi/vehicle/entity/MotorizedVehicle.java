@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import nl.kooi.vehicle.enums.FuelType;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +16,7 @@ import javax.persistence.InheritanceType;
 @Setter
 public class MotorizedVehicle extends Vehicle {
     private String licensePlate;
-    private Long horsePower;
-    private String fuelType;
+    private int horsePower;
+    @Enumerated(value = EnumType.STRING)
+    private FuelType fuelType;
 }

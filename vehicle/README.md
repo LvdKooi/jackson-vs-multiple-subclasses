@@ -1,4 +1,7 @@
-Example request:
+Example requests:
+
+* Posting a car:
+
 
     POST "http://localhost:8080/vehicle"
 
@@ -9,6 +12,22 @@ Example request:
     "model": "Golf",
     "licensePlate": "07-88-SX",
     "numberOfDoors": 4,
-    "bodyType": "hatchback",
+    "bodyStyle": "HATCHBACK",
     "vehicleType": "CAR"
+    }
+
+
+* Posting a watercraft:
+
+
+    POST "http://localhost:8080/vehicle"
+    
+    {
+    "brand": "Yamaha",
+    "color": "Grey",
+    "condition": "Great",
+    "model": "Dingy",
+    "vehicleType": "WATERCRAFT",
+    "watercraftType": "SPEED_BOAT",
+    "propulsionType": "INBOARD_MOTOR"
     }

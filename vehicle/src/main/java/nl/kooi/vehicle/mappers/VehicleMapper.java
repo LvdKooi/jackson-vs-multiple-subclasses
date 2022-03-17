@@ -1,13 +1,7 @@
 package nl.kooi.vehicle.mappers;
 
-import nl.kooi.vehicle.api.dto.CarDto;
-import nl.kooi.vehicle.api.dto.MotorCycleDto;
-import nl.kooi.vehicle.api.dto.MotorizedVehicleDto;
-import nl.kooi.vehicle.api.dto.VehicleDto;
-import nl.kooi.vehicle.entity.Car;
-import nl.kooi.vehicle.entity.MotorCycle;
-import nl.kooi.vehicle.entity.MotorizedVehicle;
-import nl.kooi.vehicle.entity.Vehicle;
+import nl.kooi.vehicle.api.dto.*;
+import nl.kooi.vehicle.entity.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
@@ -20,12 +14,16 @@ public interface VehicleMapper {
             return mapCar((CarDto) dto);
         }
 
-        if (dto instanceof MotorCycleDto) {
-            return mapMotorCycle((MotorCycleDto) dto);
+        if (dto instanceof BusDto) {
+            return mapBus((BusDto) dto);
         }
 
         if (dto instanceof MotorizedVehicleDto) {
             return mapMotorizedVehicle((MotorizedVehicleDto) dto);
+        }
+
+        if (dto instanceof WatercraftDto) {
+            return mapWatercraft((WatercraftDto) dto);
         }
 
         return null;
@@ -37,12 +35,16 @@ public interface VehicleMapper {
             return mapCarDto((Car) vehicle);
         }
 
-        if (vehicle instanceof MotorCycle) {
-            return mapMotorCycleDto((MotorCycle) vehicle);
+        if (vehicle instanceof Bus) {
+            return mapBusDto((Bus) vehicle);
         }
 
         if (vehicle instanceof MotorizedVehicle) {
             return mapMotorizedVehicleDto((MotorizedVehicle) vehicle);
+        }
+
+        if (vehicle instanceof Watercraft) {
+            return mapWatercraftDto((Watercraft) vehicle);
         }
 
         return null;
@@ -50,14 +52,17 @@ public interface VehicleMapper {
 
     MotorizedVehicle mapMotorizedVehicle(MotorizedVehicleDto dto);
 
-    MotorCycle mapMotorCycle(MotorCycleDto dto);
+    Bus mapBus(BusDto dto);
 
     Car mapCar(CarDto dto);
 
+    Watercraft mapWatercraft(WatercraftDto dto);
+
     MotorizedVehicleDto mapMotorizedVehicleDto(MotorizedVehicle entity);
 
-    MotorCycleDto mapMotorCycleDto(MotorCycle entity);
+    BusDto mapBusDto(Bus entity);
 
     CarDto mapCarDto(Car entity);
 
+    WatercraftDto mapWatercraftDto(Watercraft entity);
 }

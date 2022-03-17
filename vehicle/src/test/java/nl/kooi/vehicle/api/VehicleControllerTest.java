@@ -1,14 +1,12 @@
 package nl.kooi.vehicle.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.kooi.vehicle.api.dto.CarDto;
 import nl.kooi.vehicle.api.dto.VehicleDto;
-import nl.kooi.vehicle.entity.Car;
 import nl.kooi.vehicle.entity.Vehicle;
-import nl.kooi.vehicle.enums.VehicleType;
 import nl.kooi.vehicle.mappers.VehicleMapperImpl;
 import nl.kooi.vehicle.service.VehicleService;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -35,12 +33,13 @@ class VehicleControllerTest {
     @MockBean
     private VehicleService service;
 
-    @Test
-    void postVehicle() throws Exception {
-        when(service.saveVehicle(any(Vehicle.class))).thenReturn(getCar());
+    @ParameterizedTest(name = "#{index} with [{arguments}]")
+    @MethodSource("nl.kooi.vehicle.TestUtil#getStreamAllVehicleTypes")
+    void postVehicle(Vehicle vehicle, VehicleDto dto, Class<? extends VehicleDto> expectedDtoClass) throws Exception {
+        when(service.saveVehicle(any(Vehicle.class))).thenReturn(vehicle);
 
         var mvcResult = mockMvc.perform(post("/vehicle")
-                        .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(getCarDto())))
+                        .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andReturn()
@@ -48,31 +47,6 @@ class VehicleControllerTest {
 
         var response = objectMapper.readValue(mvcResult.getContentAsString(), VehicleDto.class);
 
-        assertThat(response).isInstanceOf(CarDto.class);
+        assertThat(response).isInstanceOf(expectedDtoClass);
     }
-
-
-    private Car getCar() {
-        var car = new Car();
-        car.setVehicleType(VehicleType.CAR);
-        car.setId(1L);
-        car.setNumberOfDoors(4);
-        car.setBodyType("Hatchback");
-        car.setBrand("Volkswagen");
-        car.setLicensePlate("1-TST-5");
-        car.setModel("Golf");
-        return car;
-    }
-
-    private CarDto getCarDto() {
-        var car = new CarDto();
-        car.setVehicleType(VehicleType.CAR);
-        car.setNumberOfDoors(4);
-        car.setBodyType("Hatchback");
-        car.setBrand("Volkswagen");
-        car.setLicensePlate("1-TST-5");
-        car.setModel("Golf");
-        return car;
-    }
-
 }

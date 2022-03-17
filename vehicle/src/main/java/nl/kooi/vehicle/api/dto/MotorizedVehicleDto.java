@@ -1,10 +1,12 @@
 package nl.kooi.vehicle.api.dto;
 
 import lombok.Data;
+import nl.kooi.vehicle.enums.FuelType;
 
 @Data
 public class MotorizedVehicleDto extends VehicleDto {
     private String licensePlate;
-    private Long horsePower;
-    private String fuelType;
+    private int horsePower;
+    private FuelType fuelType;
 }
+

@@ -24,4 +24,5 @@ public class Vehicle {
     private String color;
     private String brand;
     private String condition;
+    private int passengerCapacity;
 }
