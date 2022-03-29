@@ -38,7 +38,7 @@ class VehicleControllerTest {
     void postVehicle(Vehicle vehicle, VehicleDto dto, Class<? extends VehicleDto> expectedDtoClass) throws Exception {
         when(service.saveVehicle(any(Vehicle.class))).thenReturn(vehicle);
 
-        var mvcResult = mockMvc.perform(post("/vehicle")
+        var mvcResult = mockMvc.perform(post("/vehicles")
                         .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))

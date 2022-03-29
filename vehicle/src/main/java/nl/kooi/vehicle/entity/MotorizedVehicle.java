@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
-public class MotorizedVehicle extends Vehicle {
+public abstract class MotorizedVehicle extends Vehicle {
     private String licensePlate;
     private int horsePower;
     @Enumerated(value = EnumType.STRING)

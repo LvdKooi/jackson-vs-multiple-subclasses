@@ -18,10 +18,6 @@ public interface VehicleMapper {
             return mapBus((BusDto) dto);
         }
 
-        if (dto instanceof MotorizedVehicleDto) {
-            return mapMotorizedVehicle((MotorizedVehicleDto) dto);
-        }
-
         if (dto instanceof WatercraftDto) {
             return mapWatercraft((WatercraftDto) dto);
         }
@@ -39,10 +35,6 @@ public interface VehicleMapper {
             return mapBusDto((Bus) vehicle);
         }
 
-        if (vehicle instanceof MotorizedVehicle) {
-            return mapMotorizedVehicleDto((MotorizedVehicle) vehicle);
-        }
-
         if (vehicle instanceof Watercraft) {
             return mapWatercraftDto((Watercraft) vehicle);
         }
@@ -50,15 +42,11 @@ public interface VehicleMapper {
         return null;
     }
 
-    MotorizedVehicle mapMotorizedVehicle(MotorizedVehicleDto dto);
-
     Bus mapBus(BusDto dto);
 
     Car mapCar(CarDto dto);
 
     Watercraft mapWatercraft(WatercraftDto dto);
-
-    MotorizedVehicleDto mapMotorizedVehicleDto(MotorizedVehicle entity);
 
     BusDto mapBusDto(Bus entity);
 

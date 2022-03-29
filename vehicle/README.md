@@ -3,7 +3,7 @@ Example requests:
 * Posting a car:
 
 
-    POST "http://localhost:8080/vehicle"
+    POST "http://localhost:8080/vehicles"
 
     {
     "brand": "Volkswagen",
@@ -20,7 +20,7 @@ Example requests:
 * Posting a watercraft:
 
 
-    POST "http://localhost:8080/vehicle"
+    POST "http://localhost:8080/vehicles"
     
     {
     "brand": "Yamaha",
