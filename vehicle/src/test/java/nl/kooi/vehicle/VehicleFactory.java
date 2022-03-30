@@ -114,8 +114,6 @@ public class VehicleFactory {
         vehicle.setId(1L);
         vehicle.setBrand(String.format("%s-brand", vehicleType.name()));
         vehicle.setModel(String.format("%s-model", vehicleType.name()));
-        vehicle.setPassengerCapacity(4);
-        vehicle.setCondition("Great");
     }
 
     private static void setBasicVehicleFields(VehicleType vehicleType, VehicleDto vehicle) {
@@ -123,7 +121,5 @@ public class VehicleFactory {
         vehicle.setId(1L);
         vehicle.setBrand(String.format("%s-brand", vehicleType.name()));
         vehicle.setModel(String.format("%s-model", vehicleType.name()));
-        vehicle.setPassengerCapacity(4);
-        vehicle.setCondition("Great");
     }
 }

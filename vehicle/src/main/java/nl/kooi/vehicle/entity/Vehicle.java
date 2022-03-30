@@ -21,8 +21,6 @@ public abstract class Vehicle {
     @Enumerated(value = EnumType.STRING)
     private VehicleType vehicleType;
     private String model;
-    private String color;
     private String brand;
-    private String condition;
-    private int passengerCapacity;
+
 }

@@ -2,10 +2,7 @@ create table vehicle (
        id bigint primary key AUTO_INCREMENT,
        vehicle_type varchar(255),
       model varchar(255),
-      color varchar(255),
-      brand varchar(255),
-      condition varchar(255),
-      passenger_capacity int
+      brand varchar(255)
 );
 
 create table motorized_vehicle (

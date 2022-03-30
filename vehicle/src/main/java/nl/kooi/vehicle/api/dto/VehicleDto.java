@@ -19,7 +19,4 @@ public abstract class VehicleDto {
     private VehicleType vehicleType;
     private String brand;
     private String model;
-    private String color;
-    private String condition;
-    private int passengerCapacity;
 }
