@@ -7,8 +7,6 @@ Example requests:
 
     {
     "brand": "Volkswagen",
-    "color": "Yellow",
-    "condition": "Great",
     "model": "Golf",
     "licensePlate": "07-88-SX",
     "numberOfDoors": 4,
@@ -24,8 +22,6 @@ Example requests:
     
     {
     "brand": "Yamaha",
-    "color": "Grey",
-    "condition": "Great",
     "model": "Dingy",
     "vehicleType": "WATERCRAFT",
     "watercraftType": "SPEED_BOAT",

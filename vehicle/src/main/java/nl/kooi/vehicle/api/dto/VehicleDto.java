@@ -7,7 +7,8 @@ import nl.kooi.vehicle.enums.VehicleType;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        property = "vehicleType")
+        property = "vehicleType",
+        visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = BusDto.class, name = "BUS"),
         @JsonSubTypes.Type(value = CarDto.class, name = "CAR"),
