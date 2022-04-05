@@ -4,28 +4,29 @@ import lombok.RequiredArgsConstructor;
 import nl.kooi.vehicle.api.dto.VehicleDto;
 import nl.kooi.vehicle.mappers.VehicleMapper;
 import nl.kooi.vehicle.service.VehicleService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/vehicles")
 @RequiredArgsConstructor
-public class VehicleController {
+@RestController
+public class VehicleController implements nl.kooi.vehicle.api.VehicleApi {
     private final VehicleService service;
     private final VehicleMapper mapper;
 
-    @PostMapping
-    public VehicleDto postVehicle(@RequestBody VehicleDto dto) {
-        return mapper.map(service.saveVehicle(mapper.map(dto)));
+    @Override
+    public ResponseEntity<VehicleDto> postVehicle(@RequestBody VehicleDto dto) {
+        return ResponseEntity.ok(mapper.map(service.saveVehicle(mapper.map(dto))));
     }
 
-    @GetMapping
-    public List<VehicleDto> getAllVehicles() {
-        return service.getVehicles()
+    @Override
+    public ResponseEntity<List<VehicleDto>> getAllVehicles() {
+        return ResponseEntity.ok(service.getVehicles()
                 .stream()
                 .map(mapper::map)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 }

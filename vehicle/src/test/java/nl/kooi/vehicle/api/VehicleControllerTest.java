@@ -1,7 +1,6 @@
 package nl.kooi.vehicle.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.kooi.vehicle.api.dto.VehicleDto;
 import nl.kooi.vehicle.entity.Vehicle;
 import nl.kooi.vehicle.mappers.VehicleMapperImpl;
 import nl.kooi.vehicle.service.VehicleService;
@@ -35,7 +34,7 @@ class VehicleControllerTest {
 
     @ParameterizedTest(name = "#{index} with [{arguments}]")
     @MethodSource("nl.kooi.vehicle.TestUtil#getStreamAllVehicleTypes")
-    void postVehicle(Vehicle vehicle, VehicleDto dto, Class<? extends VehicleDto> expectedDtoClass) throws Exception {
+    void postVehicle(Vehicle vehicle, nl.kooi.vehicle.api.dto.VehicleDto dto, Class<? extends nl.kooi.vehicle.api.dto.VehicleDto> expectedDtoClass) throws Exception {
         when(service.saveVehicle(any(Vehicle.class))).thenReturn(vehicle);
 
         var mvcResult = mockMvc.perform(post("/vehicles")
@@ -45,7 +44,7 @@ class VehicleControllerTest {
                 .andReturn()
                 .getResponse();
 
-        var response = objectMapper.readValue(mvcResult.getContentAsString(), VehicleDto.class);
+        var response = objectMapper.readValue(mvcResult.getContentAsString(), nl.kooi.vehicle.api.dto.VehicleDto.class);
 
         assertThat(response).isInstanceOf(expectedDtoClass);
     }

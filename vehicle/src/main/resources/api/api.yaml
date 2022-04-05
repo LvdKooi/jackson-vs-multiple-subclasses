@@ -1,0 +1,133 @@
+openapi: 3.0.0
+
+info:
+  title: Vehicle API
+  description: Vehicle service
+  version: "1.0"
+
+servers:
+  - url: http://localhost:8080
+    description: "Development server"
+
+tags:
+  - name: Vehicle
+    description: Vehicle REST API
+
+security:
+  - BearerAuth: [ ]
+
+paths:
+  /vehicles:
+    post:
+      operationId: postVehicle
+      summary: Save a vehicle.
+      description: "Save a vehicle of the given type."
+      tags:
+        - Vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: Vehicle
+      responses:
+        '200':
+          description: The saved vehicle
+          content:
+            application/json:
+              schema:
+                type: Vehicle
+    get:
+      operationId: getAllVehicles
+      summary: Get all saved vehicles.
+      description: "Get all saved vehicles."
+      tags:
+        - Vehicle
+      responses:
+        '200':
+          description: The saved vehicle
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+components:
+  schemas:
+    Vehicle:
+      type: object
+      title: Vehicle
+      description: Vehicle
+      required:
+        - vehicleType
+      properties:
+        id:
+          type: long
+          description: The id
+        vehicleType:
+          type: VehicleType
+          description: The vehicle type
+        brand:
+          type: string
+          description: The brand of the vehicle
+        model:
+          type: string
+          description: The model of the vehicle
+      discriminator:
+        propertyName: vehicleType
+        mapping:
+            CAR: Car
+            BUS: Bus
+            WATERCRAFT: Watercraft
+    MotorizedVehicle:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          title: MotorizedVehicle
+          description: Properties of a motorized vehicle
+          properties:
+            licensePlate:
+              type: string
+              description: The license plate of the vehicle
+            horsePower:
+              type: int
+              description: number of HP
+            fuelType:
+              type: FuelType
+              description: The type of fuel
+    Car:
+      allOf:
+        - $ref: '#/components/schemas/MotorizedVehicle'
+        - type: object
+          title: Car
+          description: Properties of a car
+          properties:
+            numberOfDoors:
+              type: int
+              description: The number of doors
+            bodyStyle:
+              type: BodyStyle
+    Bus:
+      allOf:
+        - $ref: '#/components/schemas/MotorizedVehicle'
+        - type: object
+          title: Bus
+          properties:
+            litersLuggageCapacity:
+              type: int
+            busType:
+              type: BusType
+    Watercraft:
+      allOf:
+        - $ref: '#/components/schemas/Vehicle'
+        - type: object
+          title: Watercraft
+          properties:
+            lengthMeters:
+              type: int
+            draftMeters:
+              type: int
+            propulsionType:
+              type: PropulsionType
+            watercraftType:
+              type: WatercraftType

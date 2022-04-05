@@ -1,9 +1,5 @@
 package nl.kooi.vehicle;
 
-import nl.kooi.vehicle.api.dto.BusDto;
-import nl.kooi.vehicle.api.dto.CarDto;
-import nl.kooi.vehicle.api.dto.VehicleDto;
-import nl.kooi.vehicle.api.dto.WatercraftDto;
 import nl.kooi.vehicle.entity.Bus;
 import nl.kooi.vehicle.entity.Car;
 import nl.kooi.vehicle.entity.Vehicle;
@@ -36,7 +32,7 @@ public class VehicleFactory {
         return null;
     }
 
-    public static VehicleDto getVehicleDto(VehicleType type) {
+    public static nl.kooi.vehicle.api.dto.VehicleDto getVehicleDto(VehicleType type) {
         if (type != null) {
             switch (type) {
                 case BUS:
@@ -62,8 +58,8 @@ public class VehicleFactory {
         return watercraft;
     }
 
-    private static VehicleDto getWatercraftDto() {
-        var watercraft = new WatercraftDto();
+    private static nl.kooi.vehicle.api.dto.VehicleDto getWatercraftDto() {
+        var watercraft = new nl.kooi.vehicle.api.dto.WatercraftDto();
         setBasicVehicleFields(WATERCRAFT, watercraft);
         watercraft.setWatercraftType(SPEED_BOAT);
         watercraft.setDraftMeters(2);
@@ -80,8 +76,8 @@ public class VehicleFactory {
         return car;
     }
 
-    private static CarDto getCarDto() {
-        var car = new CarDto();
+    private static nl.kooi.vehicle.api.dto.CarDto getCarDto() {
+        var car = new nl.kooi.vehicle.api.dto.CarDto();
         setBasicVehicleFields(CAR, car);
         car.setNumberOfDoors(4);
         car.setBodyStyle(BodyStyle.HATCHBACK);
@@ -99,8 +95,8 @@ public class VehicleFactory {
         return bus;
     }
 
-    private static BusDto getBusDto() {
-        var bus = new BusDto();
+    private static nl.kooi.vehicle.api.dto.BusDto getBusDto() {
+        var bus = new nl.kooi.vehicle.api.dto.BusDto();
         setBasicVehicleFields(BUS, bus);
         bus.setBusType(BusType.COACH);
         bus.setLitersLuggageCapacity(50000);
@@ -116,7 +112,7 @@ public class VehicleFactory {
         vehicle.setModel(String.format("%s-model", vehicleType.name()));
     }
 
-    private static void setBasicVehicleFields(VehicleType vehicleType, VehicleDto vehicle) {
+    private static void setBasicVehicleFields(VehicleType vehicleType, nl.kooi.vehicle.api.dto.VehicleDto vehicle) {
         vehicle.setVehicleType(vehicleType);
         vehicle.setId(1L);
         vehicle.setBrand(String.format("%s-brand", vehicleType.name()));

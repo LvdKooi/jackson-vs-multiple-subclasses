@@ -1,6 +1,5 @@
 package nl.kooi.vehicle.mappers;
 
-import nl.kooi.vehicle.api.dto.*;
 import nl.kooi.vehicle.entity.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -9,24 +8,24 @@ import org.mapstruct.ReportingPolicy;
 public interface VehicleMapper {
 
 
-    default Vehicle map(VehicleDto dto) {
-        if (dto instanceof CarDto) {
-            return mapCar((CarDto) dto);
+    default Vehicle map(nl.kooi.vehicle.api.dto.VehicleDto dto) {
+        if (dto instanceof nl.kooi.vehicle.api.dto.CarDto) {
+            return mapCar((nl.kooi.vehicle.api.dto.CarDto) dto);
         }
 
-        if (dto instanceof BusDto) {
-            return mapBus((BusDto) dto);
+        if (dto instanceof nl.kooi.vehicle.api.dto.BusDto) {
+            return mapBus((nl.kooi.vehicle.api.dto.BusDto) dto);
         }
 
-        if (dto instanceof WatercraftDto) {
-            return mapWatercraft((WatercraftDto) dto);
+        if (dto instanceof nl.kooi.vehicle.api.dto.WatercraftDto) {
+            return mapWatercraft((nl.kooi.vehicle.api.dto.WatercraftDto) dto);
         }
 
         return null;
 
     }
 
-    default VehicleDto map(Vehicle vehicle) {
+    default nl.kooi.vehicle.api.dto.VehicleDto map(Vehicle vehicle) {
         if (vehicle instanceof Car) {
             return mapCarDto((Car) vehicle);
         }
@@ -42,15 +41,15 @@ public interface VehicleMapper {
         return null;
     }
 
-    Bus mapBus(BusDto dto);
+    Bus mapBus(nl.kooi.vehicle.api.dto.BusDto dto);
 
-    Car mapCar(CarDto dto);
+    Car mapCar(nl.kooi.vehicle.api.dto.CarDto dto);
 
-    Watercraft mapWatercraft(WatercraftDto dto);
+    Watercraft mapWatercraft(nl.kooi.vehicle.api.dto.WatercraftDto dto);
 
-    BusDto mapBusDto(Bus entity);
+    nl.kooi.vehicle.api.dto.BusDto mapBusDto(Bus entity);
 
-    CarDto mapCarDto(Car entity);
+    nl.kooi.vehicle.api.dto.CarDto mapCarDto(Car entity);
 
-    WatercraftDto mapWatercraftDto(Watercraft entity);
+    nl.kooi.vehicle.api.dto.WatercraftDto mapWatercraftDto(Watercraft entity);
 }
