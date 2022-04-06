@@ -38,8 +38,7 @@ CREATE TABLE watercraft
   );
 
 ALTER TABLE motorized_vehicle
-  ADD CONSTRAINT motorized_vehicle_vehicle_id_fk FOREIGN KEY (id) REFERENCES
-  vehicle(id);
+  ADD CONSTRAINT motorized_vehicle_vehicle_id_fk FOREIGN KEY (id) REFERENCES vehicle(id);
 
 ALTER TABLE car
   ADD CONSTRAINT car_vehicle_id_fk FOREIGN KEY (id) REFERENCES vehicle(id);
