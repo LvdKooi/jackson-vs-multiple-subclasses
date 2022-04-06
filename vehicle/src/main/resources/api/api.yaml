@@ -90,7 +90,7 @@ components:
               type: string
               description: The license plate of the vehicle
             horsePower:
-              type: int
+              type: integer
               description: number of HP
             fuelType:
               type: FuelType
@@ -103,7 +103,7 @@ components:
           description: Properties of a car
           properties:
             numberOfDoors:
-              type: int
+              type: integer
               description: The number of doors
             bodyStyle:
               type: BodyStyle
@@ -114,7 +114,7 @@ components:
           title: Bus
           properties:
             litersLuggageCapacity:
-              type: int
+              type: integer
             busType:
               type: BusType
     Watercraft:
@@ -124,9 +124,9 @@ components:
           title: Watercraft
           properties:
             lengthMeters:
-              type: int
+              type: integer
             draftMeters:
-              type: int
+              type: integer
             propulsionType:
               type: PropulsionType
             watercraftType:
