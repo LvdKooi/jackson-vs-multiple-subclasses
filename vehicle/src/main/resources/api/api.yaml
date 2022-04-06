@@ -88,13 +88,13 @@ components:
           properties:
             licensePlate:
               type: string
-              description: The license plate of the vehicle
+              description: The license plate
             horsePower:
               type: integer
-              description: number of HP
+              description: The number of HP
             fuelType:
               type: FuelType
-              description: The type of fuel
+              description: The fuel specification
     Car:
       allOf:
         - $ref: '#/components/schemas/MotorizedVehicle'
@@ -112,9 +112,11 @@ components:
         - $ref: '#/components/schemas/MotorizedVehicle'
         - type: object
           title: Bus
+          description: Properties of a bus
           properties:
             litersLuggageCapacity:
               type: integer
+              description: The total amount of luggage capacity, indicated in liters
             busType:
               type: BusType
     Watercraft:
@@ -122,11 +124,14 @@ components:
         - $ref: '#/components/schemas/Vehicle'
         - type: object
           title: Watercraft
+          description: Properties of a watercraft
           properties:
             lengthMeters:
               type: integer
+              description: The total length of the watercraft, indicated in meters
             draftMeters:
               type: integer
+              description: The draft of the watercraft, indicated in meters
             propulsionType:
               type: PropulsionType
             watercraftType:
