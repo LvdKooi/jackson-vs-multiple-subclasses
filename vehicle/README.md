@@ -1,3 +1,5 @@
+When running locally, API-documentation is available at: http://localhost:8080/swagger-ui/index.html
+
 Example requests:
 
 * Posting a car:
