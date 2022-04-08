@@ -2,6 +2,7 @@ package nl.kooi.vehicle.api;
 
 import lombok.RequiredArgsConstructor;
 import nl.kooi.vehicle.api.dto.VehicleDto;
+import nl.kooi.vehicle.entity.Vehicle;
 import nl.kooi.vehicle.mappers.VehicleMapper;
 import nl.kooi.vehicle.service.VehicleService;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +19,16 @@ public class VehicleController {
 
     @PostMapping
     public VehicleDto postVehicle(@RequestBody VehicleDto dto) {
-        return mapper.map(service.saveVehicle(mapper.map(dto)));
+        Vehicle vehicle = mapper.mapToVehicle(dto);
+        service.saveVehicle(vehicle);
+        return mapper.mapToVehicleDto(vehicle);
     }
 
     @GetMapping
     public List<VehicleDto> getAllVehicles() {
         return service.getVehicles()
                 .stream()
-                .map(mapper::map)
+                .map(mapper::mapToVehicleDto)
                 .collect(Collectors.toList());
     }
 }

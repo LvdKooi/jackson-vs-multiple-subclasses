@@ -9,7 +9,7 @@ import org.mapstruct.ReportingPolicy;
 public interface VehicleMapper {
 
 
-    default Vehicle map(VehicleDto dto) {
+    default Vehicle mapToVehicle(VehicleDto dto) {
         if (dto instanceof CarDto) {
             return mapCar((CarDto) dto);
         }
@@ -26,7 +26,7 @@ public interface VehicleMapper {
 
     }
 
-    default VehicleDto map(Vehicle vehicle) {
+    default VehicleDto mapToVehicleDto(Vehicle vehicle) {
         if (vehicle instanceof Car) {
             return mapCarDto((Car) vehicle);
         }
