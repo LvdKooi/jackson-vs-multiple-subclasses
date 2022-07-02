@@ -12,75 +12,77 @@
     <artifactId>vehicle</artifactId>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <openapi-tools.version>0.2.2</openapi-tools.version>
+        <openapi-generator.version>5.1.0</openapi-generator.version>
+        <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
     </properties>
     <dependencies>
-    <dependency>
-        <groupId>org.openapitools</groupId>
-        <artifactId>jackson-databind-nullable</artifactId>
-        <version>0.2.2</version>
-    </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${openapi-tools.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-        <plugin>
-            <groupId>org.openapitools</groupId>
-            <artifactId>openapi-generator-maven-plugin</artifactId>
-            <version>5.1.0</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>generate</goal>
-                    </goals>
-                    <configuration>
-                        <modelPackage>nl.kooi.vehicle.api.dto</modelPackage>
-                        <modelNameSuffix>Dto</modelNameSuffix>
-                        <invokerPackage>nl.kooi.vehicle.api</invokerPackage>
-                        <apiPackage>nl.kooi.vehicle.api</apiPackage>
-                        <inputSpec>${project.basedir}/src/main/resources/api/api.yaml</inputSpec>
-                        <output>${project.basedir}/generated/openapi/vehicle</output>
-                        <importMappings>
-                            BodyStyle=nl.kooi.vehicle.enums.BodyStyle,
-                            BusType=nl.kooi.vehicle.enums.BusType,
-                            FuelType=nl.kooi.vehicle.enums.FuelType,
-                            PropulsionType=nl.kooi.vehicle.enums.PropulsionType,
-                            WatercraftType=nl.kooi.vehicle.enums.WatercraftType,
-                            VehicleType=nl.kooi.vehicle.enums.VehicleType
-                        </importMappings>
-                        <configOptions>
-                            <dateLibrary>java8</dateLibrary>
-                            <useTags>true</useTags>
-                            <interfaceOnly>true</interfaceOnly>
-                            <booleanGetterPrefix>is</booleanGetterPrefix>
-                        </configOptions>
-                        <globalProperties>
-                            <apiTests>false</apiTests>
-                            <modelTests>false</modelTests>
-                        </globalProperties>
-                        <additionalProperties>
-                            <interfaceOnly>true</interfaceOnly>
-                            <hideGenerationTimestamp>true</hideGenerationTimestamp>
-                        </additionalProperties>
-                        <generatorName>spring</generatorName>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <modelPackage>nl.kooi.vehicle.api.dto</modelPackage>
+                            <modelNameSuffix>Dto</modelNameSuffix>
+                            <invokerPackage>nl.kooi.vehicle.api</invokerPackage>
+                            <apiPackage>nl.kooi.vehicle.api</apiPackage>
+                            <inputSpec>${project.basedir}/src/main/resources/api/api.yaml</inputSpec>
+                            <output>${project.basedir}/generated/openapi/vehicle</output>
+                            <importMappings>
+                                BodyStyle=nl.kooi.vehicle.enums.BodyStyle,
+                                BusType=nl.kooi.vehicle.enums.BusType,
+                                FuelType=nl.kooi.vehicle.enums.FuelType,
+                                PropulsionType=nl.kooi.vehicle.enums.PropulsionType,
+                                WatercraftType=nl.kooi.vehicle.enums.WatercraftType,
+                                VehicleType=nl.kooi.vehicle.enums.VehicleType
+                            </importMappings>
+                            <configOptions>
+                                <dateLibrary>java8</dateLibrary>
+                                <useTags>true</useTags>
+                                <interfaceOnly>true</interfaceOnly>
+                                <booleanGetterPrefix>is</booleanGetterPrefix>
+                            </configOptions>
+                            <globalProperties>
+                                <apiTests>false</apiTests>
+                                <modelTests>false</modelTests>
+                            </globalProperties>
+                            <additionalProperties>
+                                <interfaceOnly>true</interfaceOnly>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                            </additionalProperties>
+                            <generatorName>spring</generatorName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${build-helper-maven-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>add-source-generated</id>
+                        <id>add-source</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>add-source</goal>
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.basedir}/generated/openapi/src/main/java</source>
+                                <source>${project.basedir}/generated</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -88,7 +90,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${maven-clean-plugin.version}</version>
                 <configuration>
                     <filesets>
                         <fileset>
